@@ -1,0 +1,221 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>{{ SITE_NAME }}</title>
+		<style type="text/css">
+
+body {
+	background:black;
+}
+
+a {
+	color:#00FF00;
+	TEXT-DECORATION:none;
+}
+
+#con {
+	height:auto;
+	position:absolute;
+	left:15%;
+	right:15%;
+	border-style:solid;
+	border:dashed 3px green;
+}
+
+#title {
+	width:100%;
+	height:90px;
+	/* background:yellow; */
+	font-size:45px;
+	color:red;
+	text-align:center;
+	padding:5px;
+}
+#title a {
+	color:red;
+	}
+
+#menu {
+	width:100%;
+	height:35px;;
+	/* background:red; */
+	border-top:dashed 3px green;
+	border-bottom:dashed 3px green;
+}
+
+#menu a {
+	height:40px;
+	width:100px;
+	text-align:center;
+	font-size:16px;
+	color:#00FF00;
+	/* background:white; */
+	float:left;
+	padding:5px;
+	font-style:normal;
+}
+
+
+#main {
+	height:80%;
+	width:100%;
+	/* background:white; */
+	float:left;
+	border-bottom:dashed 3px green;
+}
+
+#value {
+	width:75%;
+	height:100%;
+	/* background:blue; */
+	border-right:dashed 3px green;
+	float:left;
+}
+
+#page {
+	height:20px;
+	width:75%;
+	/* background:yellow; */
+	clear: both;
+	float:left;
+	color:yellow;
+}
+
+#page #old {
+	font-size:18px;
+	height:auto;
+	width:40%;
+	float:left;
+	font color="#FF0000";
+	/* background:yellow; */
+}
+
+#page #new {
+	height:auto;
+	font-size:18px;
+	text-align:right;
+	width:40%;
+	font:"Times New Roman", Times, serif;
+	float:right;
+	/* background:yellow; */
+}
+
+#tag {
+	width:23%;
+	height:auto;
+	/* background:yellow; */
+	float:right;
+	right:1%;
+	border-bottom:dashed 3px green;
+	border-left:dashed 3px green;
+	border-right:dashed 3px green;
+	position:absolute;
+	top:auto;
+}
+
+#tag #title {
+	font:sans-serif;
+	font-size:13px;
+	height:auto;
+	width:100%;
+	/* background:red; */
+}
+
+#tag .value {
+	font-size:20px;
+	font:sans-serif;
+}
+
+#footer {
+	width:100%;
+	height:40px;
+	/* background:yellow; */
+	font-size:20px;
+	color:red;
+	text-align:center;
+	clear: both;
+}
+
+li {font-size:36px;color:#FF0000;}
+
+.title {
+	padding-left:30px;
+	font-size:35px;
+	color:#FF0000;
+	text-align:left;
+	height:35px;
+	width:auto;
+	/* background:red; */
+}
+	
+.value {
+	padding:10px 10px 0px 20px;
+	width:auto;
+	height:auto;
+	text-align:left;
+	color:red;
+	/* background:yellow; */
+}
+
+.more {
+	height:18px;
+	width:100%;
+	color:#0000CC;
+	font-size:20px;
+	/* background:yellow; */
+	text-align:right;
+	right:5px;
+}
+
+hr {
+	border-style:dotted;
+	color:green;
+	height:0px;;
+	width:100%;
+}
+
+
+
+
+		</style>
+	</head>
+
+	<body>
+		<div id="con">
+			<div id="title"><a href='{{ index }}/'>{{ SITE_NAME }}</a></div>
+			<div id="menu">
+				<div class="tag"><a href ="{{ index }}/">Index</a></div>
+				<div class="tag"><a href ="#">About Me</a></div>
+			</div>
+			<div id="main">
+				<div id="value">
+				{% for post in posts %}
+					<div class="title"><a href ="/atricle/{{ post.id }}"> {{ post.title }}</a> </div>
+					<hr>
+					<div class="value"> {{ post.value|linebreaks }} </div>
+					<div class="more"> <a href="/atricle/{{ post.id }}">read</a></div>
+					<hr>
+				{% endfor %}
+				</div>
+				<div id="page">
+					<div id="old"><a href="/page/{{ page_no|add:"1" }}">Old</a></div>
+					{% if page_no == 2 %}
+					     <div id="new"><a href="{{ index }}/">New</a></div>
+					{% else %}
+					    <div id="new"><a href="{{ page_no_sub }}">New</a></div>
+					{% endif %}
+				</div>
+				<div id="tag">
+					<div id="title">Links</div>
+					{% for link in links %}
+						<div class="value"><a href="{{ link.link }}">{{ link.title }}</a></div>
+					{% endfor %}
+				</div>
+			</div>
+			<div id="footer">Powered by Q_blog</div>
+		</div>
+	</body>
+</html>
+
