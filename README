@@ -18,8 +18,9 @@ README：
 
 只需要安装python、django和数据库就可以，不用其他插件
 
-1.同步数据：python manage.py syncdb
-2.运行服务：python manage.py runserver 0.0.0.0:80便可以了
+1.settings.py 修改数据库和Blog相关的设置
+2.同步数据：python manage.py syncdb
+3.运行服务：python manage.py runserver 0.0.0.0:80便可以了
 
 
 
