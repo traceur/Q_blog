@@ -1,0 +1,26 @@
+README：
+
+读了《The django book》后练手写的粗糙程序
+
+不熟悉前端，所以连模板都没有继承什么的，我嫌太麻烦了
+
+实现的简单的Blog功能：添加、显示blog内容，分页
+
+其他功能还有待完善：留言
+
+我会一直慢慢完善的
+
+
+---------------------------
+
+使用：
+
+
+只需要安装python、django和数据库就可以，不用其他插件
+
+1.同步数据：python manage.py syncdb
+2.运行服务：python manage.py runserver 0.0.0.0:80便可以了
+
+
+
+2012.2.4 Qiaoy <TraceurQ@gmail.com>
